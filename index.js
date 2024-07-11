@@ -27,7 +27,7 @@ async function run() {
 
         var stat = await dockerCT.stats({ stream: false });
 
-        var net = stat.networks['eth0'].rx_bytes + stat.networks['eth0'].tx_bytes;
+        var net = stat.networks['eth0'].tx_bytes;
         var netInMB = net / Math.pow(10, 6);
 
         console.log('stat', stat, net, netInMB + 'MB');
