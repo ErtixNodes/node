@@ -38,7 +38,7 @@ async function run() {
         var res = await superagent
             .get(`${process.env.REMOTE}/dash/node/charge/${process.env.TOKEN}/${name}?suspend=${suspend}`);
 
-        console.log(res); 
+        // console.log(res); 
     }
 
     isRun = false;
