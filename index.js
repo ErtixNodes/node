@@ -6,7 +6,7 @@ var docker = new Docker();
 
 const db = require('./db');
 
-setInterval(run, 15*1000);
+setInterval(run, 60*1000);
 
 let isRun = false;
 
