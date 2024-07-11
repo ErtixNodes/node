@@ -32,8 +32,15 @@ async function run() {
 
         console.log('stat', stat, net, netInMB + 'MB');
 
-        var suspend = false;
-        if (netInMB > 50) suspend = true;
+        let suspend = false;
+        if (netInMB > 50) {
+            suspend = true;
+            try {
+                dockerCT.kill();
+            } catch(e) {
+                console.log('cant kill CT', e);
+            }
+        }
 
         var res = await superagent
             .get(`${process.env.REMOTE}/dash/node/charge/${process.env.TOKEN}/${name}?suspend=${suspend}`);
