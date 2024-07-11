@@ -32,10 +32,13 @@ async function run() {
 
         console.log('stat', stat, net, netInMB + 'MB');
 
-        var res = await superagent
-            .get(`${process.env.REMOTE}/dash/node/charge/${process.env.TOKEN}/${name}`);
+        var suspend = false;
+        if (netInMB > 512) suspend = true;
 
-        console.log(res);
+        var res = await superagent
+            .get(`${process.env.REMOTE}/dash/node/charge/${process.env.TOKEN}/${name}?suspend=${suspend}`);
+
+        console.log(res); 
     }
 
     isRun = false;
