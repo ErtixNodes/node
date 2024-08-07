@@ -4,7 +4,7 @@ const superagent = require('superagent');
 
 var docker = new Docker();
 
-const db = require('./db');
+// const db = require('./db');
 
 setInterval(run, 15*1000);
 
