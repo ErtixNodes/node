@@ -34,7 +34,7 @@ async function run() {
             console.log('stat', stat, net, netInMB + 'MB');
     
             let suspend = false;
-            if (netInMB > 50) {
+            if (netInMB > 250) {
                 suspend = true;
                 try {
                     dockerCT.kill();
