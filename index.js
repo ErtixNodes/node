@@ -48,7 +48,7 @@ async function run() {
     
             // console.log(res);  
         } catch(e) {
-            console.log('Failed to check container');
+            console.log('Failed to check container', e);
         }
     }
 
