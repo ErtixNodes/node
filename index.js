@@ -6,6 +6,8 @@ var docker = new Docker();
 
 // const db = require('./db');
 
+let keep = ['201231cc-76b9-4056-9864-6d1495e8e38f'];
+
 setInterval(run, 60*1000);
 
 let isRun = false;
@@ -34,7 +36,7 @@ async function run() {
             console.log('stat', stat, net, netInMB + 'MB');
     
             let suspend = false;
-            if (netInMB > 250) {
+            if (netInMB > 250 && !keep.includes(name)) {
                 suspend = true;
                 try {
                     dockerCT.kill();
